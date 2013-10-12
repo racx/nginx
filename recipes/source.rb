@@ -86,7 +86,7 @@ bash 'unarchive_source' do
 end
 
 node['nginx']['source']['modules'].each do |ngx_module|
-  include_recipe ngx_module
+  include_recipe "nginx::#{ngx_module}"
 end
 
 configure_flags       = node.run_state['nginx_configure_flags']
